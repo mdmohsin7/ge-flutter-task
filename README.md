@@ -6,4 +6,4 @@ Home Screen UI ([Behnace](https://www.behance.net/gallery/108001411/Waves-Wallet
 
 Tokens Tab                 |  Leasing Tab              |  Bottom sheet   
 :-------------------------:|:-------------------------:|:-------------------------:
-![](screenshots/2.png)     |![](screenshots/3.png)     |![](screenshots/1.png)
+![](screenshots/3.png)     |![](screenshots/2.png)     |![](screenshots/1.png)
