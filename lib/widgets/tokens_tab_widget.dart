@@ -10,10 +10,30 @@ class TokensTabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SearchWidget(),
-        TokenCard(),
-        Accordion(title: 'Hidden tokens (2)', content: ''),
-        Accordion(title: 'Suspicious tokens (15)', content: '')
+        const SearchWidget(),
+        TokenCard(
+          token: "Waves",
+          amount: "5.0054",
+          trailing: Image.asset(
+            'assets/waves.png',
+            fit: BoxFit.contain,
+          ),
+        ),
+        const TokenCard(
+          token: "Pigeon / My Token",
+          amount: "1444.04556321",
+          trailing: Icon(Icons.currency_bitcoin),
+        ),
+        TokenCard(
+          token: "US Dollar",
+          amount: "199.24",
+          trailing: Image.asset(
+            'assets/dollar.png',
+            fit: BoxFit.contain,
+          ),
+        ),
+        const Accordion(title: 'Hidden tokens (2)', content: []),
+        const Accordion(title: 'Suspicious tokens (15)', content: [])
       ],
     );
   }

@@ -1,9 +1,15 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class TokenCard extends StatelessWidget {
-  const TokenCard({Key? key}) : super(key: key);
+  final String token;
+  final String amount;
+  final Widget trailing;
+  const TokenCard(
+      {Key? key,
+      required this.token,
+      required this.amount,
+      required this.trailing})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,40 +18,54 @@ class TokenCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       elevation: 2,
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
         child: Row(
           children: [
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Stack(
               children: [
                 CircleAvatar(
+                  backgroundColor: trailing.runtimeType == Image
+                      ? Colors.transparent
+                      : Colors.blue,
                   radius: 25,
+                  child: trailing,
                 ),
-                Positioned(
-                  child: Icon(
-                    Icons.star,
-                    color: Colors.red,
-                    size: 16,
-                  ),
+                const Positioned(
                   bottom: 0,
                   right: 0,
+                  child: CircleAvatar(
+                    radius: 8,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.check,
+                      color: Colors.black,
+                      size: 12,
+                    ),
+                  ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Waves"),
                 Text(
-                  "5.9797",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                  token,
+                  style: const TextStyle(color: Colors.grey),
+                ),
+                Text(
+                  amount,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             )
